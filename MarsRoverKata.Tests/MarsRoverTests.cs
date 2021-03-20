@@ -64,5 +64,15 @@ namespace MarsRoverKata.Tests
             //Assert
             Assert.Equal("0:0:E", position);
         }
+        [Fact]
+        public void ARoverPointsSouthAfterTheCommandRRRR()
+        {
+            //Arrange
+            var rover = new Rover();
+            //Act
+            var position = rover.Execute("RRR");
+            //Assert
+            Assert.Equal("0:0:E", position);
+        }
     }
 }

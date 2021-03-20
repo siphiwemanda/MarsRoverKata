@@ -42,7 +42,7 @@ namespace MarsRoverKata
                         Direction = "E";
                         break;
                     case "E":
-                        Direction = "W";
+                        Direction = "S";
                         break;
                 }
 

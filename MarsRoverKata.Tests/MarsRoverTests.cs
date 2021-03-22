@@ -1,4 +1,5 @@
-﻿using Xunit;
+﻿using System;
+using Xunit;
 
 namespace MarsRoverKata.Tests
 {
@@ -14,16 +15,16 @@ namespace MarsRoverKata.Tests
             //Assert
             Assert.Equal("0:0:S", position);
         }
-        //[Fact]
-        // public void ARoverMovesOnePositionWhenRecivingTheCommandM()
-        // {
-        //     //Arrange
-        //     var rover = new Rover();
-        //     //Act
-        //     var position = rover.Execute("M");
-        //     //Assert
-        //     Assert.Equal("0:1:S", position);
-        // }
+        [Fact]
+        public void ARoverMovesOnePositionWhenRecivingTheCommandM()
+         {
+             //Arrange
+             var rover = new Rover();
+             //Act
+             var position = rover.Execute("M");
+             //Assert
+             Assert.Equal("0:1:S", position);
+         }
         [Fact]
         public void ARoverPointsWestAfterTheCommandR()
         {
@@ -35,21 +36,12 @@ namespace MarsRoverKata.Tests
             Assert.Equal("0:0:W", position);
         }
         [Fact]
-        public void ARoverPointsEastAfterTheCommandL()
-        {
-            //Arrange
-            var rover = new Rover();
-            //Act
-            var position = rover.Execute("L");
-            //Assert
-            Assert.Equal("0:0:E", position);
-        }
-        [Fact]
         public void ARoverPointsNorthAfterTheCommandRR()
         {
             //Arrange
             var rover = new Rover();
             //Act
+            
             var position = rover.Execute("RR");
             //Assert
             Assert.Equal("0:0:N", position);
@@ -73,6 +65,46 @@ namespace MarsRoverKata.Tests
             var position = rover.Execute("RRR");
             //Assert
             Assert.Equal("0:0:E", position);
+        }
+        [Fact]
+        public void ARoverPointsEastAfterTheCommandL()
+        {
+            //Arrange
+            var rover = new Rover();
+            //Act
+            var position = rover.Execute("L");
+            //Assert
+            Assert.Equal("0:0:E", position);
+        }
+        [Fact]
+        public void ARoverPointsNorthAfterTheCommandLL()
+        {
+            //Arrange
+            var rover = new Rover();
+            //Act
+            var position = rover.Execute("LL");
+            //Assert
+            Assert.Equal("0:0:N", position);
+        }
+        [Fact]
+        public void ARoverPointsWestAfterTheCommandLLL()
+        {
+            //Arrange
+            var rover = new Rover();
+            //Act
+            var position = rover.Execute("LLL");
+            //Assert
+            Assert.Equal("0:0:W", position);
+        }
+        [Fact]
+        public void ARoverPointsSouthAfterTheCommandLLLL()
+        {
+            //Arrange
+            var rover = new Rover();
+            //Act
+            var position = rover.Execute("LLLL");
+            //Assert
+            Assert.Equal("0:0:S", position);
         }
     }
 }

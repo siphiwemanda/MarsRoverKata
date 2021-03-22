@@ -5,26 +5,29 @@ namespace MarsRoverKata
     public class Rover
     {
         public string Direction { get; set; }
+        public string Position { get; set; }
 
         public Rover()
         {
             Direction = "S";
+            Position = "0:0";
         }
+
+      
 
         public string Execute(string commands)
         {
-
             foreach (var command in commands)
             {
                 SetDirection(command);
             }
-           
 
-            // if (commands == string.Empty)
-            // {
-            //     return $"0:0:{Direction}";
-            // }
-           return $"0:0:{Direction}";
+            if (commands.Contains("M"))
+            {
+                Position = "0:1";
+            }
+
+            return $"{Position}:{Direction}";
         }
 
         public void SetDirection(char command)

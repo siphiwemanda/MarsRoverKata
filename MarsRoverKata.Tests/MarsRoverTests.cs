@@ -1,10 +1,10 @@
-﻿using System;
-using Xunit;
+﻿using Xunit;
 
 namespace MarsRoverKata.Tests
 {
     public class MarsRoverTests
     {
+        #region RotateTest
         [Fact]
         public void ARoverIsAtZeroZeroSouthWhenInitialized()
         {
@@ -15,16 +15,7 @@ namespace MarsRoverKata.Tests
             //Assert
             Assert.Equal("0:0:S", position);
         }
-        [Fact]
-        public void ARoverMovesOnePositionWhenRecivingTheCommandM()
-         {
-             //Arrange
-             var rover = new Rover();
-             //Act
-             var position = rover.Execute("M");
-             //Assert
-             Assert.Equal("0:1:S", position);
-         }
+
         [Fact]
         public void ARoverPointsWestAfterTheCommandR()
         {
@@ -35,6 +26,7 @@ namespace MarsRoverKata.Tests
             //Assert
             Assert.Equal("0:0:W", position);
         }
+
         [Fact]
         public void ARoverPointsNorthAfterTheCommandRR()
         {
@@ -46,6 +38,7 @@ namespace MarsRoverKata.Tests
             //Assert
             Assert.Equal("0:0:N", position);
         }
+
         [Fact]
         public void ARoverPointsEastAfterTheCommandRRR()
         {
@@ -56,16 +49,18 @@ namespace MarsRoverKata.Tests
             //Assert
             Assert.Equal("0:0:E", position);
         }
+
         [Fact]
         public void ARoverPointsSouthAfterTheCommandRRRR()
         {
             //Arrange
             var rover = new Rover();
             //Act
-            var position = rover.Execute("RRR");
+            var position = rover.Execute("RRRR");
             //Assert
-            Assert.Equal("0:0:E", position);
+            Assert.Equal("0:0:S", position);
         }
+
         [Fact]
         public void ARoverPointsEastAfterTheCommandL()
         {
@@ -76,6 +71,7 @@ namespace MarsRoverKata.Tests
             //Assert
             Assert.Equal("0:0:E", position);
         }
+
         [Fact]
         public void ARoverPointsNorthAfterTheCommandLL()
         {
@@ -86,6 +82,7 @@ namespace MarsRoverKata.Tests
             //Assert
             Assert.Equal("0:0:N", position);
         }
+
         [Fact]
         public void ARoverPointsWestAfterTheCommandLLL()
         {
@@ -96,6 +93,7 @@ namespace MarsRoverKata.Tests
             //Assert
             Assert.Equal("0:0:W", position);
         }
+
         [Fact]
         public void ARoverPointsSouthAfterTheCommandLLLL()
         {
@@ -105,6 +103,49 @@ namespace MarsRoverKata.Tests
             var position = rover.Execute("LLLL");
             //Assert
             Assert.Equal("0:0:S", position);
+        }
+        #endregion
+
+        [Fact]
+        public void ARoverMovesForwardOneSpaceWhenFacingSouth()
+        {
+            //Arrange
+            var rover = new Rover();
+            //Act
+            var position = rover.Execute("M");
+            //Assert
+            Assert.Equal("0:1:S", position);
+        }
+        [Fact]
+        public void ARoverMovesForwardOneSpaceWhenFacingEast()
+        {
+            //Arrange
+            var rover = new Rover();
+            //Act
+            var position = rover.Execute("LM");
+            //Assert
+            Assert.Equal("1:0:E", position);
+        }
+        [Fact]
+        public void ARoverMovesForwardFourSpaceWhenFacingEast()
+        {
+            //Arrange
+            var rover = new Rover();
+            //Act
+            var position = rover.Execute("LMMMM");
+            //Assert
+            Assert.Equal("4:0:E", position);
+        }
+        
+        [Fact]
+        public void ARoverMovesForwardFourSpaceWhenFacingWest()
+        {
+            //Arrange
+            var rover = new Rover();
+            //Act
+            var position = rover.Execute("LMMMMLLMMMM");
+            //Assert
+            Assert.Equal("0:0:W", position);
         }
     }
 }

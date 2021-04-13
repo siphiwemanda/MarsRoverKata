@@ -147,5 +147,35 @@ namespace MarsRoverKata.Tests
             //Assert
             Assert.Equal("0:0:W", position);
         }
+        [Fact]
+        public void ARoverMovesWillMoveNorthWhenFacingNorth()
+        {
+            //Arrange
+            var rover = new Rover();
+            //Act
+            var position = rover.Execute("MLLM");
+            //Assert
+            Assert.Equal("0:0:N", position);
+        }
+        [Fact]
+        public void ARoverLoopToTheOtherSideOfTheGridWhenMovingNorth()
+        {
+            //Arrange
+            var rover = new Rover();
+            //Act
+            var position = rover.Execute("LLM");
+            //Assert
+            Assert.Equal("0:9:N", position);
+        }
+        [Fact]
+        public void ARoverLoopToTheOtherSideOfTheGridWhenMovingWest()
+        {
+            //Arrange
+            var rover = new Rover();
+            //Act
+            var position = rover.Execute("RM");
+            //Assert
+            Assert.Equal("9:0:W", position);
+        }
     }
 }

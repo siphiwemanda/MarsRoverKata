@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EastState.cs" />
+    <Compile Include="Grid.cs" />
     <Compile Include="IState.cs" />
     <Compile Include="NorthState.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

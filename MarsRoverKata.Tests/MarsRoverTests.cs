@@ -106,6 +106,7 @@ namespace MarsRoverKata.Tests
         }
         #endregion
 
+        #region MoveTest
         [Fact]
         public void ARoverMovesForwardOneSpaceWhenFacingSouth()
         {
@@ -177,5 +178,6 @@ namespace MarsRoverKata.Tests
             //Assert
             Assert.Equal("9:0:W", position);
         }
+        #endregion
     }
 }

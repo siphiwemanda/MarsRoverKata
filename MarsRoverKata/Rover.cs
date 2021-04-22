@@ -4,6 +4,7 @@
     {
         private IState _state;
 
+ 
         public Rover()
         {
             _state = new SouthState(0, 0);

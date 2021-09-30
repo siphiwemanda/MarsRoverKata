@@ -21,11 +21,7 @@
 
         public IState Move()
         {
-            if (_x == 0)
-            {
-                return new WestState(9, _y);
-            }
-            return new WestState(_x - 1, _y);
+            return _x == 0 ? new WestState(9, _y) : new WestState(_x - 1, _y);
         }
     }
 }

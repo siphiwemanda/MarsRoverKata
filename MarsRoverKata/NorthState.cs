@@ -24,9 +24,7 @@
 
         public IState Move()
         {
-            _grid.Move(0, 2);
-            return this;
-            return _y == MinY ? new NorthState(_x, MaxY) : new NorthState(_x, _y - 1);
+            return _y == 0 ? new NorthState(_x, 9) : new NorthState(_x, _y-1);
         }
     }
 }

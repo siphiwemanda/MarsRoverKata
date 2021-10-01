@@ -2,26 +2,26 @@
 {
     public class SouthState : IState
     {
-        private readonly int _x;
-        private readonly int _y;
-
-        public SouthState(int x, int y)
+      
+        private readonly Grid _grid;
+        
+        public SouthState(Grid grid)
         {
-            _x = x;
-            _y = y;
+            _grid = grid;
         }
 
         public string Direction => "S";
-        public string Position => $"{_x}:{_y}";
-
+        public string Position => $"{_grid.X}:{_grid.Y}";
+        
         public IState Rotate(char command)
         {
-            return command == 'R' ? (IState) new WestState(_x, _y) : new EastState(_x, _y);
+            return command == 'R' ? (IState) new WestState(_grid) : new EastState(_grid);
         }
 
         public IState Move()
         {
-            return new SouthState(_x, _y+1);
+            _grid.Move(0,1);
+            return new SouthState(_grid);
         }
 
         

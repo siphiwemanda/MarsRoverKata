@@ -2,26 +2,25 @@
 {
     public class EastState : IState
     {
-        private int _x;
-        private int _y;
-
-        public EastState(int x, int y)
+        private readonly Grid _grid;
+  
+        public EastState(Grid grid)
         {
-            _x = x;
-            _y = y;
+            _grid = grid;
         }
 
         public string Direction => "E";
-        public string Position => $"{_x}:{_y}";
+        public string Position => $"{_grid.X}:{_grid.Y}";
 
         public IState Rotate(char command)
         {
-            return command == 'R' ? (IState) new SouthState(_x, _y) : new NorthState(_x, _y);
+            return command == 'R' ? (IState) new SouthState(_grid) : new NorthState(_grid);
         }
 
         public IState Move()
         {
-            return new EastState(_x + 1, _y);
+            _grid.Move(1,0);
+            return this;
         }
     }
 }

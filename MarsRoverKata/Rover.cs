@@ -7,7 +7,7 @@
  
         public Rover()
         {
-            _state = new SouthState(0, 0);
+            _state = new SouthState(new Grid());
         }
         
         public string Execute(string commands)

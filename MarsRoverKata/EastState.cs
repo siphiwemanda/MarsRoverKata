@@ -3,8 +3,8 @@
     public class EastState : IState
     {
         private readonly Grid _grid;
-  
-        public EastState(Grid grid)
+
+        public EastState(Grid grid )
         {
             _grid = grid;
         }

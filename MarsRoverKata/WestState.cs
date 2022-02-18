@@ -7,6 +7,7 @@
         public WestState(Grid grid)
         {
             _grid = grid;
+
         }
 
         public string Direction => "W";

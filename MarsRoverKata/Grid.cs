@@ -1,9 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace MarsRoverKata
 {
     public class Grid
     {
+        private readonly ObstacleRepo _repo;
         private const int GridHeight = 10;
         private const int GridWidth = 10;
         private const int MinYPosition = 0;
@@ -11,12 +13,30 @@ namespace MarsRoverKata
         public int Y { get; private set; }
         public int X { get; private set; }
 
-
-        public void Move(int x, int y) 
+        public Grid(ObstacleRepo repo)
         {
-          
+            _repo = repo;
+        }
+        
+        
+        public void Move(int x, int y)
+        {
+     
             X = CalculatePosition(X + x, MinXPosition, GridWidth);
-            Y = CalculatePosition(Y + y, MinYPosition, GridHeight);
+
+            foreach (var obstacleClass in _repo.obsticalList)
+            {
+                if (obstacleClass.ObstacleY == y+Y)
+                {
+                    Y = Y;
+                }
+                else
+                {
+                    Y = CalculatePosition(Y + y, MinYPosition, GridHeight);
+                }
+            }
+     
+
         }
 
         private int CalculatePosition(int position, int minPosition, int maxPosition)

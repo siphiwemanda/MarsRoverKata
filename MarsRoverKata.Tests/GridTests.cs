@@ -1,14 +1,17 @@
-﻿using Xunit;
+﻿using System.Collections.Generic;
+using System.Diagnostics;
+using Xunit;
 
 namespace MarsRoverKata.Tests
 {
     public class GridTests
     {
+   
         [Fact]
         public void WhenMovingYMinus2YIs8()
         {
             //Arrange
-            var grid = new Grid();
+            var grid = new Grid(new ObstacleRepo());
             //Act
             grid.Move(0, -2);
             //Assert
@@ -18,7 +21,7 @@ namespace MarsRoverKata.Tests
         public void WhenMovingXMinus2XIs8()
         {
             //Arrange
-            var grid = new Grid();
+            var grid = new Grid(new ObstacleRepo());
             //Act
             grid.Move(-2, 0);
             //Assert
@@ -28,7 +31,7 @@ namespace MarsRoverKata.Tests
         public void WhenMovingYPlus2YIs2()
         {
             //Arrange
-            var grid = new Grid();
+            var grid = new Grid(new ObstacleRepo());
             //Act
             grid.Move(0, 2);
             //Assert
@@ -38,7 +41,7 @@ namespace MarsRoverKata.Tests
         public void WhenMovingXPlus2XIs2()
         {
             //Arrange
-            var grid = new Grid();
+            var grid = new Grid(new ObstacleRepo());
             //Act
             grid.Move(2, 0);
             //Assert
@@ -48,7 +51,7 @@ namespace MarsRoverKata.Tests
         public void WhenMovingXPlus11XIs1()
         {
             //Arrange
-            var grid = new Grid();
+            var grid = new Grid(new ObstacleRepo());
             //Act
             grid.Move(11, 0);
             //Assert
@@ -58,7 +61,7 @@ namespace MarsRoverKata.Tests
         public void WhenMovingXMinus11XIs9()
         {
             //Arrange
-            var grid = new Grid();
+            var grid = new Grid(new ObstacleRepo());
             //Act
             grid.Move(-11, 0);
             //Assert
@@ -68,7 +71,7 @@ namespace MarsRoverKata.Tests
         public void WhenMovingYMinus11YIs9()
         {
             //Arrange
-            var grid = new Grid();
+            var grid = new Grid(new ObstacleRepo());
             //Act
             grid.Move(0, -11);
             //Assert
@@ -78,7 +81,7 @@ namespace MarsRoverKata.Tests
         public void WhenMovingYPlus11YIs1()
         {
             //Arrange
-            var grid = new Grid();
+            var grid = new Grid(new ObstacleRepo());
             //Act
             grid.Move(0, 11);
             //Assert
@@ -88,7 +91,7 @@ namespace MarsRoverKata.Tests
         public void WhenMovingYMinus21YIs9()
         {
             //Arrange
-            var grid = new Grid();
+            var grid = new Grid(new ObstacleRepo());
             //Act
             grid.Move(0, -21);
             //Assert
@@ -98,7 +101,7 @@ namespace MarsRoverKata.Tests
         public void WhenMovingXMinus30XIs0()
         {
             //Arrange
-            var grid = new Grid();
+            var grid = new Grid(new ObstacleRepo());
             //Act
             grid.Move(-30, 0);
             //Assert
@@ -108,11 +111,13 @@ namespace MarsRoverKata.Tests
         public void WhenMovingYPlus25YIs5()
         {
             //Arrange
-            var grid = new Grid();
+            var grid = new Grid(new ObstacleRepo());
+         
             //Act
             grid.Move(0, 25);
             //Assert
             Assert.Equal(5, grid.Y);
         }
+
     }
 }

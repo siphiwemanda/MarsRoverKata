@@ -4,7 +4,8 @@
     {
         private readonly Grid _grid;
 
-        public NorthState(Grid grid)
+
+        public NorthState(Grid grid )
         {
             _grid = grid;
         }

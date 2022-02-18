@@ -45,6 +45,8 @@
     <Compile Include="Grid.cs" />
     <Compile Include="IState.cs" />
     <Compile Include="NorthState.cs" />
+    <Compile Include="ObstacleClass.cs" />
+    <Compile Include="ObstacleRepo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Rover.cs" />
     <Compile Include="SouthState.cs" />

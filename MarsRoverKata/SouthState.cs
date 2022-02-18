@@ -4,10 +4,12 @@
     {
       
         private readonly Grid _grid;
-        
+
+
         public SouthState(Grid grid)
         {
             _grid = grid;
+
         }
 
         public string Direction => "S";
